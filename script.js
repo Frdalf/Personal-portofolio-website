@@ -3,12 +3,12 @@
 // ============================================
 function hideSplashScreen() {
     const splashScreen = document.getElementById('splash-screen');
-    
+
     // Wait for loading animation to complete (3 seconds total)
     setTimeout(() => {
         splashScreen.classList.add('hidden');
         document.body.style.overflow = 'auto';
-        
+
         // Remove splash screen from DOM after fade transition
         setTimeout(() => {
             splashScreen.remove();
@@ -33,12 +33,12 @@ function createStars() {
         star.style.top = Math.random() * 100 + '%';
         star.style.animationDelay = Math.random() * 3 + 's';
         star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-        
+
         // Random size for stars
         const size = Math.random() * 2 + 1;
         star.style.width = size + 'px';
         star.style.height = size + 'px';
-        
+
         starsContainer.appendChild(star);
     }
 }
@@ -146,11 +146,11 @@ document.head.appendChild(style);
 // ============================================
 async function fetchGitHubProjects() {
     const container = document.getElementById('github-projects');
-    
+
     try {
         const response = await fetch('https://api.github.com/users/Frdalf/repos?sort=updated&per_page=6');
         const repos = await response.json();
-        
+
         if (repos.length === 0 || repos.message) {
             container.innerHTML = `
                 <div class="loading">
@@ -165,18 +165,18 @@ async function fetchGitHubProjects() {
             const formattedName = repo.name
                 .replace(/[-_]/g, ' ')
                 .replace(/\b\w/g, char => char.toUpperCase());
-            
+
             // Check if description exists
             const hasDescription = repo.description && repo.description.trim() !== '';
             const descriptionClass = hasDescription ? '' : 'no-description';
             const descriptionText = hasDescription ? repo.description : 'No description available';
-            
+
             // Custom live demo URLs for specific projects
             const customDemos = {
                 'Crypto-Portfolio-Tracker-and-Analytics': 'https://cryptoportfolioalpha.vercel.app'
             };
             const liveDemo = customDemos[repo.name] || repo.homepage;
-            
+
             return `
             <div class="project-card" data-type="github">
                 <div class="project-header">
@@ -220,7 +220,7 @@ function filterProjects(filter) {
     // Update active tab
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.toLowerCase() === filter || 
+        if (btn.textContent.toLowerCase() === filter ||
             (filter === 'all' && btn.textContent === 'All') ||
             (filter === 'github' && btn.textContent === 'GitHub') ||
             (filter === 'featured' && btn.textContent === 'Featured')) {
@@ -232,7 +232,7 @@ function filterProjects(filter) {
     const githubProjects = document.getElementById('github-projects');
     const subsectionTitle = document.querySelector('.subsection-title');
 
-    switch(filter) {
+    switch (filter) {
         case 'all':
             featuredProjects.style.display = 'grid';
             githubProjects.style.display = 'grid';
@@ -251,23 +251,7 @@ function filterProjects(filter) {
     }
 }
 
-// ============================================
-// Contact Form Handler
-// ============================================
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
 
-    // You can integrate with a backend service or email service here
-    // For now, we'll just show an alert
-    alert(`Thank you ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
-    
-    // Reset form
-    this.reset();
-});
 
 // ============================================
 // Typing Effect for Subtitle
@@ -281,7 +265,7 @@ let typingSpeed = 100;
 function typeEffect() {
     const typingText = document.querySelector('.typing-text');
     const currentRole = roles[roleIndex];
-    
+
     if (isDeleting) {
         typingText.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
@@ -310,11 +294,11 @@ function typeEffect() {
 document.addEventListener('DOMContentLoaded', () => {
     // Hide splash screen after animation
     hideSplashScreen();
-    
+
     createStars();
     fetchGitHubProjects();
     setTimeout(typeEffect, 1000);
-    
+
     // Make hero section visible immediately
     document.querySelector('.hero').style.opacity = '1';
     document.querySelector('.hero').style.transform = 'translateY(0)';
@@ -328,11 +312,11 @@ const navLinksItems = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (pageYOffset >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
