@@ -75,11 +75,19 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li class="lang-switcher">
+                    <span class="lang-label">EN</span>
+                    <label class="lang-toggle">
+                        <input type="checkbox" id="langToggle">
+                        <span class="lang-slider"></span>
+                    </label>
+                    <span class="lang-label">ID</span>
+                </li>
             </ul>
         </div>
     </nav>
@@ -88,24 +96,24 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="greeting">Hello, I'm</div>
+                <div class="greeting" data-i18n="hero.greeting">Hello, I'm</div>
                 <h1>Farid Al Farizi</h1>
                 <h2 class="subtitle">
-                    <span class="typing-text">Developer & Tech Enthusiast</span>
+                    <span class="typing-text" data-i18n="hero.subtitle">Developer & Tech Enthusiast</span>
                 </h2>
-                <p class="hero-description">
+                <p class="hero-description" data-i18n="hero.description">
                     Building innovative technology solutions with a passion for web development,
                     blockchain, and modern technologies.
                 </p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">
-                        <span>View Projects</span>
+                        <span data-i18n="hero.viewProjects">View Projects</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#contact" class="btn btn-secondary" data-i18n="hero.contactMe">Contact Me</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -116,21 +124,21 @@
                             <polyline points="16,18 22,12 16,6"></polyline>
                             <polyline points="8,6 2,12 8,18"></polyline>
                         </svg>
-                        <span>Web Dev</span>
+                        <span data-i18n="hero.webDev">Web Dev</span>
                     </div>
                     <div class="float-card card-2">
                         <svg class="card-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
                         </svg>
-                        <span>Fast & Clean</span>
+                        <span data-i18n="hero.fastClean">Fast & Clean</span>
                     </div>
                     <div class="float-card card-3">
                         <svg class="card-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
                             <path d="M18 20V10M12 20V4M6 20v-6" />
                         </svg>
-                        <span>Data Science</span>
+                        <span data-i18n="hero.dataScience">Data Science</span>
                     </div>
                 </div>
                 <div class="profile-wrapper">
@@ -156,14 +164,14 @@
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll Down</span>
+            <span data-i18n="hero.scrollDown">Scroll Down</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
         <div class="about-content">
             <div class="about-image">
                 <!-- Floating Tech Icons -->
@@ -227,28 +235,28 @@
                 </div>
             </div>
             <div class="about-text">
-                <h3>Hello! Nice to meet you</h3>
-                <p>
+                <h3 data-i18n="about.hello">Hello! Nice to meet you</h3>
+                <p data-i18n="about.intro">
                     I'm a passionate developer dedicated to creating innovative technology solutions.
                     With experience in various modern technologies, I'm always enthusiastic about learning new things
                     in the world of programming.
                 </p>
-                <p>
+                <p data-i18n="about.focus">
                     My main focus is developing applications that are not only functional,
                     but also deliver outstanding user experiences with modern and intuitive designs.
                 </p>
                 <div class="about-stats">
                     <div class="stat-item">
                         <span class="stat-number">20+</span>
-                        <span class="stat-label">Projects</span>
+                        <span class="stat-label" data-i18n="about.projects">Projects</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">10+</span>
-                        <span class="stat-label">Technologies</span>
+                        <span class="stat-label" data-i18n="about.technologies">Technologies</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Dedication</span>
+                        <span class="stat-label" data-i18n="about.dedication">Dedication</span>
                     </div>
                 </div>
             </div>
@@ -257,13 +265,14 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-title">Skills & Technologies</h2>
+        <h2 class="section-title" data-i18n="skills.title">Skills & Technologies</h2>
         <div class="skills-container">
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">🌐</div>
-                    <h3>Frontend Development</h3>
-                    <p>HTML, CSS, JavaScript, React, Vue.js, and responsive design for stunning interfaces.</p>
+                    <h3 data-i18n="skills.frontend.title">Frontend Development</h3>
+                    <p data-i18n="skills.frontend.desc">HTML, CSS, JavaScript, React, Vue.js, and responsive design for
+                        stunning interfaces.</p>
                     <div class="skill-tags">
                         <span>HTML5</span>
                         <span>CSS3</span>
@@ -273,8 +282,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">⚙️</div>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Python, PHP, and database management for powerful applications.</p>
+                    <h3 data-i18n="skills.backend.title">Backend Development</h3>
+                    <p data-i18n="skills.backend.desc">Node.js, Python, PHP, and database management for powerful
+                        applications.</p>
                     <div class="skill-tags">
                         <span>Node.js</span>
                         <span>Python</span>
@@ -284,8 +294,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🔗</div>
-                    <h3>Web3 & Blockchain</h3>
-                    <p>Smart contracts, DApps, and blockchain technology for a decentralized future.</p>
+                    <h3 data-i18n="skills.web3.title">Web3 & Blockchain</h3>
+                    <p data-i18n="skills.web3.desc">Smart contracts, DApps, and blockchain technology for a
+                        decentralized future.</p>
                     <div class="skill-tags">
                         <span>Solidity</span>
                         <span>Web3.js</span>
@@ -294,8 +305,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🛠️</div>
-                    <h3>Tools & Platforms</h3>
-                    <p>Git, GitHub, VS Code, Docker, and Linux for an efficient workflow.</p>
+                    <h3 data-i18n="skills.tools.title">Tools & Platforms</h3>
+                    <p data-i18n="skills.tools.desc">Git, GitHub, VS Code, Docker, and Linux for an efficient workflow.
+                    </p>
                     <div class="skill-tags">
                         <span>Git</span>
                         <span>Docker</span>
@@ -305,8 +317,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">📊</div>
-                    <h3>Data Science</h3>
-                    <p>Data analysis, machine learning, and visualization for extracting meaningful insights.</p>
+                    <h3 data-i18n="skills.datascience.title">Data Science</h3>
+                    <p data-i18n="skills.datascience.desc">Data analysis, machine learning, and visualization for
+                        extracting meaningful insights.</p>
                     <div class="skill-tags">
                         <span>Python</span>
                         <span>Pandas</span>
@@ -320,11 +333,11 @@
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title" data-i18n="projects.title">My Projects</h2>
         <div class="projects-tabs">
-            <button class="tab-btn active" onclick="filterProjects('all')">All</button>
+            <button class="tab-btn active" onclick="filterProjects('all')" data-i18n="projects.all">All</button>
             <button class="tab-btn" onclick="filterProjects('github')">GitHub</button>
-            <button class="tab-btn" onclick="filterProjects('featured')">Featured</button>
+            <button class="tab-btn" onclick="filterProjects('featured')" data-i18n="projects.featured">Featured</button>
         </div>
 
         <!-- Featured Projects -->
@@ -334,17 +347,18 @@
                     <div class="project-icon">💎</div>
                 </div>
                 <div class="project-info">
-                    <span class="project-badge">Featured</span>
-                    <h3>DeFi Protocol</h3>
-                    <p>DeFi platform for staking, lending, and yield farming with competitive APY.</p>
+                    <span class="project-badge" data-i18n="projects.featuredBadge">Featured</span>
+                    <h3 data-i18n="projects.defi.title">DeFi Protocol</h3>
+                    <p data-i18n="projects.defi.desc">DeFi platform for staking, lending, and yield farming with
+                        competitive APY.</p>
                     <div class="project-tags">
                         <span class="tag">Solidity</span>
                         <span class="tag">React</span>
                         <span class="tag">Web3</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Code →</a>
-                        <a href="#" class="project-link">Live Demo →</a>
+                        <a href="#" class="project-link" data-i18n="projects.viewCode">View Code →</a>
+                        <a href="#" class="project-link" data-i18n="projects.liveDemo">Live Demo →</a>
                     </div>
                 </div>
             </div>
@@ -353,39 +367,41 @@
                     <div class="project-icon">🎮</div>
                 </div>
                 <div class="project-info">
-                    <span class="project-badge">Featured</span>
-                    <h3>NFT Marketplace</h3>
-                    <p>NFT marketplace platform for trading with automated royalty system.</p>
+                    <span class="project-badge" data-i18n="projects.featuredBadge">Featured</span>
+                    <h3 data-i18n="projects.nft.title">NFT Marketplace</h3>
+                    <p data-i18n="projects.nft.desc">NFT marketplace platform for trading with automated royalty system.
+                    </p>
                     <div class="project-tags">
                         <span class="tag">ERC-721</span>
                         <span class="tag">IPFS</span>
                         <span class="tag">Next.js</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Code →</a>
-                        <a href="#" class="project-link">Live Demo →</a>
+                        <a href="#" class="project-link" data-i18n="projects.viewCode">View Code →</a>
+                        <a href="#" class="project-link" data-i18n="projects.liveDemo">Live Demo →</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- GitHub Projects -->
-        <h3 class="subsection-title">Latest from GitHub</h3>
+        <h3 class="subsection-title" data-i18n="projects.latestGithub">Latest from GitHub</h3>
         <div id="github-projects" class="projects-grid">
             <div class="loading">
                 <div class="spinner"></div>
-                <p>Loading projects from GitHub...</p>
+                <p data-i18n="projects.loadingGithub">Loading projects from GitHub...</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Let's work together!</h3>
-                <p>Interested in collaborating or have any questions? Feel free to reach out!</p>
+                <h3 data-i18n="contact.subtitle">Let's work together!</h3>
+                <p data-i18n="contact.desc">Interested in collaborating or have any questions? Feel free to reach out!
+                </p>
 
                 <div class="contact-items">
                     <div class="contact-item">
@@ -431,7 +447,7 @@
             <div class="contact-quote-container">
                 <div class="quote-card">
                     <div class="quote-icon">"</div>
-                    <blockquote class="quote-text">
+                    <blockquote class="quote-text" data-i18n="contact.quote">
                         The best way to predict the future is to create it.
                     </blockquote>
                     <cite class="quote-author">— Peter Drucker</cite>
@@ -478,7 +494,7 @@
                     </svg>
                 </a>
             </div>
-            <p class="copyright">&copy; 2026 Farid Al Farizi. All rights reserved.</p>
+            <p class="copyright" data-i18n="footer.copyright">&copy; 2026 Farid Al Farizi. All rights reserved.</p>
         </div>
     </footer>
 

@@ -1,4 +1,207 @@
 // ============================================
+// Internationalization (i18n) System
+// ============================================
+const translations = {
+    en: {
+        // Navigation
+        'nav.home': 'Home',
+        'nav.about': 'About',
+        'nav.skills': 'Skills',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contact',
+
+        // Hero Section
+        'hero.greeting': "Hello, I'm",
+        'hero.subtitle': 'Developer & Tech Enthusiast',
+        'hero.description': 'Building innovative technology solutions with a passion for web development, blockchain, and modern technologies.',
+        'hero.viewProjects': 'View Projects',
+        'hero.contactMe': 'Contact Me',
+        'hero.webDev': 'Web Dev',
+        'hero.fastClean': 'Fast & Clean',
+        'hero.dataScience': 'Data Science',
+        'hero.scrollDown': 'Scroll Down',
+
+        // About Section
+        'about.title': 'About Me',
+        'about.hello': 'Hello! Nice to meet you',
+        'about.intro': "I'm a passionate developer dedicated to creating innovative technology solutions. With experience in various modern technologies, I'm always enthusiastic about learning new things in the world of programming.",
+        'about.focus': 'My main focus is developing applications that are not only functional, but also deliver outstanding user experiences with modern and intuitive designs.',
+        'about.projects': 'Projects',
+        'about.technologies': 'Technologies',
+        'about.dedication': 'Dedication',
+
+        // Skills Section
+        'skills.title': 'Skills & Technologies',
+        'skills.frontend.title': 'Frontend Development',
+        'skills.frontend.desc': 'HTML, CSS, JavaScript, React, Vue.js, and responsive design for stunning interfaces.',
+        'skills.backend.title': 'Backend Development',
+        'skills.backend.desc': 'Node.js, Python, PHP, and database management for powerful applications.',
+        'skills.web3.title': 'Web3 & Blockchain',
+        'skills.web3.desc': 'Smart contracts, DApps, and blockchain technology for a decentralized future.',
+        'skills.tools.title': 'Tools & Platforms',
+        'skills.tools.desc': 'Git, GitHub, VS Code, Docker, and Linux for an efficient workflow.',
+        'skills.datascience.title': 'Data Science',
+        'skills.datascience.desc': 'Data analysis, machine learning, and visualization for extracting meaningful insights.',
+
+        // Projects Section
+        'projects.title': 'My Projects',
+        'projects.all': 'All',
+        'projects.featured': 'Featured',
+        'projects.featuredBadge': 'Featured',
+        'projects.defi.title': 'DeFi Protocol',
+        'projects.defi.desc': 'DeFi platform for staking, lending, and yield farming with competitive APY.',
+        'projects.nft.title': 'NFT Marketplace',
+        'projects.nft.desc': 'NFT marketplace platform for trading with automated royalty system.',
+        'projects.viewCode': 'View Code →',
+        'projects.liveDemo': 'Live Demo →',
+        'projects.latestGithub': 'Latest from GitHub',
+        'projects.loadingGithub': 'Loading projects from GitHub...',
+        'projects.noProjects': 'No projects found or API rate limit exceeded.',
+        'projects.loadError': 'Failed to load projects. Please check your internet connection.',
+
+        // Contact Section
+        'contact.title': 'Get In Touch',
+        'contact.subtitle': "Let's work together!",
+        'contact.desc': 'Interested in collaborating or have any questions? Feel free to reach out!',
+        'contact.quote': 'The best way to predict the future is to create it.',
+
+        // Footer
+        'footer.copyright': '© 2026 Farid Al Farizi. All rights reserved.',
+
+        // Typing Effect Roles
+        'roles': ['Developer & Tech Enthusiast', 'Web Developer', 'Blockchain Enthusiast', 'Problem Solver']
+    },
+    id: {
+        // Navigation
+        'nav.home': 'Beranda',
+        'nav.about': 'Tentang',
+        'nav.skills': 'Keahlian',
+        'nav.projects': 'Proyek',
+        'nav.contact': 'Kontak',
+
+        // Hero Section
+        'hero.greeting': 'Halo, Saya',
+        'hero.subtitle': 'Pengembang & Pecinta Teknologi',
+        'hero.description': 'Membangun solusi teknologi inovatif dengan semangat untuk pengembangan web, blockchain, dan teknologi modern.',
+        'hero.viewProjects': 'Lihat Proyek',
+        'hero.contactMe': 'Hubungi Saya',
+        'hero.webDev': 'Web Dev',
+        'hero.fastClean': 'Cepat & Rapi',
+        'hero.dataScience': 'Data Science',
+        'hero.scrollDown': 'Gulir ke Bawah',
+
+        // About Section
+        'about.title': 'Tentang Saya',
+        'about.hello': 'Halo! Senang bertemu dengan Anda',
+        'about.intro': 'Saya adalah pengembang yang berdedikasi untuk menciptakan solusi teknologi inovatif. Dengan pengalaman di berbagai teknologi modern, saya selalu antusias mempelajari hal-hal baru di dunia pemrograman.',
+        'about.focus': 'Fokus utama saya adalah mengembangkan aplikasi yang tidak hanya fungsional, tetapi juga memberikan pengalaman pengguna yang luar biasa dengan desain modern dan intuitif.',
+        'about.projects': 'Proyek',
+        'about.technologies': 'Teknologi',
+        'about.dedication': 'Dedikasi',
+
+        // Skills Section
+        'skills.title': 'Keahlian & Teknologi',
+        'skills.frontend.title': 'Pengembangan Frontend',
+        'skills.frontend.desc': 'HTML, CSS, JavaScript, React, Vue.js, dan desain responsif untuk antarmuka yang memukau.',
+        'skills.backend.title': 'Pengembangan Backend',
+        'skills.backend.desc': 'Node.js, Python, PHP, dan manajemen database untuk aplikasi yang andal.',
+        'skills.web3.title': 'Web3 & Blockchain',
+        'skills.web3.desc': 'Smart contract, DApps, dan teknologi blockchain untuk masa depan terdesentralisasi.',
+        'skills.tools.title': 'Tools & Platform',
+        'skills.tools.desc': 'Git, GitHub, VS Code, Docker, dan Linux untuk alur kerja yang efisien.',
+        'skills.datascience.title': 'Data Science',
+        'skills.datascience.desc': 'Analisis data, machine learning, dan visualisasi untuk mengekstrak insight bermakna.',
+
+        // Projects Section
+        'projects.title': 'Proyek Saya',
+        'projects.all': 'Semua',
+        'projects.featured': 'Unggulan',
+        'projects.featuredBadge': 'Unggulan',
+        'projects.defi.title': 'Protokol DeFi',
+        'projects.defi.desc': 'Platform DeFi untuk staking, lending, dan yield farming dengan APY kompetitif.',
+        'projects.nft.title': 'Marketplace NFT',
+        'projects.nft.desc': 'Platform marketplace NFT untuk trading dengan sistem royalti otomatis.',
+        'projects.viewCode': 'Lihat Kode →',
+        'projects.liveDemo': 'Demo Langsung →',
+        'projects.latestGithub': 'Terbaru dari GitHub',
+        'projects.loadingGithub': 'Memuat proyek dari GitHub...',
+        'projects.noProjects': 'Tidak ada proyek ditemukan atau batas API tercapai.',
+        'projects.loadError': 'Gagal memuat proyek. Silakan periksa koneksi internet Anda.',
+
+        // Contact Section
+        'contact.title': 'Hubungi Saya',
+        'contact.subtitle': 'Mari bekerja sama!',
+        'contact.desc': 'Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!',
+        'contact.quote': 'Cara terbaik untuk memprediksi masa depan adalah dengan menciptakannya.',
+
+        // Footer
+        'footer.copyright': '© 2026 Farid Al Farizi. Hak cipta dilindungi.',
+
+        // Typing Effect Roles
+        'roles': ['Pengembang & Pecinta Teknologi', 'Web Developer', 'Penggemar Blockchain', 'Problem Solver']
+    }
+};
+
+// Current language state - always start with English
+let currentLang = 'en';
+
+// Apply translations to all elements with data-i18n attribute
+function applyTranslations(lang) {
+    currentLang = lang;
+    localStorage.setItem('portfolio-lang', lang);
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Translate all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Update typing effect roles
+    updateTypingRoles(lang);
+}
+
+// Update roles for typing effect based on language
+function updateTypingRoles(lang) {
+    if (translations[lang]['roles']) {
+        window.typingRoles = translations[lang]['roles'];
+    }
+}
+
+// Initialize language switcher
+function initLanguageSwitcher() {
+    const langToggle = document.getElementById('langToggle');
+    const langSwitcher = document.querySelector('.lang-switcher');
+
+    if (langToggle) {
+        langToggle.addEventListener('change', () => {
+            const lang = langToggle.checked ? 'id' : 'en';
+            applyTranslations(lang);
+
+            // Update label highlighting
+            if (langSwitcher) {
+                langSwitcher.setAttribute('data-lang', lang);
+            }
+        });
+    }
+
+    // Apply default language on load
+    applyTranslations(currentLang);
+}
+
+// ============================================
 // Splash Screen Handler
 // ============================================
 function hideSplashScreen() {
@@ -256,7 +459,8 @@ function filterProjects(filter) {
 // ============================================
 // Typing Effect for Subtitle
 // ============================================
-const roles = ['Developer & Tech Enthusiast', 'Web Developer', 'Blockchain Enthusiast', 'Problem Solver'];
+// Initialize roles from translations (will be updated when language changes)
+window.typingRoles = translations[currentLang]['roles'];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -264,7 +468,8 @@ let typingSpeed = 100;
 
 function typeEffect() {
     const typingText = document.querySelector('.typing-text');
-    const currentRole = roles[roleIndex];
+    const roles = window.typingRoles || translations['en']['roles'];
+    const currentRole = roles[roleIndex % roles.length];
 
     if (isDeleting) {
         typingText.textContent = currentRole.substring(0, charIndex - 1);
@@ -294,6 +499,9 @@ function typeEffect() {
 document.addEventListener('DOMContentLoaded', () => {
     // Hide splash screen after animation
     hideSplashScreen();
+
+    // Initialize language switcher
+    initLanguageSwitcher();
 
     createStars();
     fetchGitHubProjects();
