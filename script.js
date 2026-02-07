@@ -202,6 +202,83 @@ function initLanguageSwitcher() {
 }
 
 // ============================================
+// Theme Switcher (Dark/Light Mode)
+// ============================================
+let currentTheme = 'dark'; // Default is dark mode
+
+function applyTheme(theme) {
+    currentTheme = theme;
+
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+}
+
+function initThemeSwitcher() {
+    const themeToggle = document.getElementById('themeToggle');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('change', () => {
+            const theme = themeToggle.checked ? 'light' : 'dark';
+            applyTheme(theme);
+        });
+    }
+
+    // Apply default theme (dark)
+    applyTheme(currentTheme);
+}
+
+// ============================================
+// Back to Top Button
+// ============================================
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (!backToTopBtn) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Custom smooth scroll with easing
+    function smoothScrollToTop() {
+        const startPosition = window.scrollY;
+        const duration = 800; // ms
+        let startTime = null;
+
+        // Easing function - easeOutCubic for smooth deceleration
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeOutCubic(progress);
+
+            window.scrollTo(0, startPosition * (1 - easeProgress));
+
+            if (progress < 1) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    }
+
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', smoothScrollToTop);
+}
+
+// ============================================
 // Splash Screen Handler
 // ============================================
 function hideSplashScreen() {
@@ -502,6 +579,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize language switcher
     initLanguageSwitcher();
+
+    // Initialize theme switcher (default: dark mode)
+    initThemeSwitcher();
+
+    // Initialize back to top button
+    initBackToTop();
 
     createStars();
     fetchGitHubProjects();
