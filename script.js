@@ -48,8 +48,8 @@ const translations = {
         'projects.all': 'All',
         'projects.featured': 'Featured',
         'projects.featuredBadge': 'Featured',
-        'projects.defi.title': 'DeFi Protocol',
-        'projects.defi.desc': 'DeFi platform for staking, lending, and yield farming with competitive APY.',
+        'projects.defi.title': 'DeFi Staking Platform',
+        'projects.defi.desc': 'A decentralized application (DApp) for token staking and reward distribution, built with Solidity, Hardhat, and React.',
         'projects.nft.title': 'NFT Marketplace',
         'projects.nft.desc': 'NFT marketplace platform for trading with automated royalty system.',
         'projects.viewCode': 'View Code →',
@@ -117,8 +117,8 @@ const translations = {
         'projects.all': 'Semua',
         'projects.featured': 'Unggulan',
         'projects.featuredBadge': 'Unggulan',
-        'projects.defi.title': 'Protokol DeFi',
-        'projects.defi.desc': 'Platform DeFi untuk staking, lending, dan yield farming dengan APY kompetitif.',
+        'projects.defi.title': 'Platform Staking DeFi',
+        'projects.defi.desc': 'Aplikasi terdesentralisasi (DApp) untuk staking token dan distribusi hadiah, dibangun dengan Solidity, Hardhat, dan React.',
         'projects.nft.title': 'Marketplace NFT',
         'projects.nft.desc': 'Platform marketplace NFT untuk trading dengan sistem royalti otomatis.',
         'projects.viewCode': 'Lihat Kode →',
@@ -454,7 +454,8 @@ async function fetchGitHubProjects() {
             // Custom live demo URLs for specific projects
             const customDemos = {
                 'Crypto-Portfolio-Tracker-and-Analytics': 'https://cryptoportfolioalpha.vercel.app',
-                'Defi-staking-platform': 'https://defistakingplatform.vercel.app/'
+                'Defi-staking-platform': 'https://defistakingplatform.vercel.app/',
+                'Personal-portofolio-website': 'https://faridalfarizi.vercel.app/'
             };
             const liveDemo = customDemos[repo.name] || repo.homepage;
 
