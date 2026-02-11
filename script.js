@@ -453,7 +453,8 @@ async function fetchGitHubProjects() {
 
             // Custom live demo URLs for specific projects
             const customDemos = {
-                'Crypto-Portfolio-Tracker-and-Analytics': 'https://cryptoportfolioalpha.vercel.app'
+                'Crypto-Portfolio-Tracker-and-Analytics': 'https://cryptoportfolioalpha.vercel.app',
+                'Defi-staking-platform': 'https://defistakingplatform.vercel.app/'
             };
             const liveDemo = customDemos[repo.name] || repo.homepage;
 
