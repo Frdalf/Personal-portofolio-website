@@ -14,7 +14,7 @@
 
 **A modern, responsive portfolio website showcasing my journey as a Developer & Tech Enthusiast**
 
-[🌐 Live Demo](faridalfarizi.vercel.app) • [📧 Contact](mailto:farid.alfarizi2305@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/faridalfarizi) • [📸 Instagram](https://www.instagram.com/kasasteril)
+[🌐 Live Demo](https://faridalfarizi.vercel.app/) • [📧 Contact](mailto:farid.alfarizi2305@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/faridalfarizi) • [📸 Instagram](https://www.instagram.com/kasasteril)
 
 ---
 
