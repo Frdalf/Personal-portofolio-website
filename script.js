@@ -204,13 +204,13 @@ function initLanguageSwitcher() {
 // ============================================
 // Theme Switcher (Dark/Light Mode)
 // ============================================
-let currentTheme = 'dark'; // Default is dark mode
+let currentTheme = 'light'; // Default is light (paper) mode
 
 function applyTheme(theme) {
     currentTheme = theme;
 
-    if (theme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
     } else {
         document.documentElement.removeAttribute('data-theme');
     }
@@ -221,12 +221,12 @@ function initThemeSwitcher() {
 
     if (themeToggle) {
         themeToggle.addEventListener('change', () => {
-            const theme = themeToggle.checked ? 'light' : 'dark';
+            const theme = themeToggle.checked ? 'dark' : 'light';
             applyTheme(theme);
         });
     }
 
-    // Apply default theme (dark)
+    // Apply default theme (light)
     applyTheme(currentTheme);
 }
 
@@ -284,7 +284,7 @@ function initBackToTop() {
 function hideSplashScreen() {
     const splashScreen = document.getElementById('splash-screen');
 
-    // Wait for loading animation to complete (3 seconds total)
+    // Wait for loading animation to complete
     setTimeout(() => {
         splashScreen.classList.add('hidden');
         document.body.style.overflow = 'auto';
@@ -292,36 +292,12 @@ function hideSplashScreen() {
         // Remove splash screen from DOM after fade transition
         setTimeout(() => {
             splashScreen.remove();
-        }, 800);
-    }, 3000);
+        }, 600);
+    }, 1300);
 }
 
 // Prevent scrolling while splash screen is visible
 document.body.style.overflow = 'hidden';
-
-// ============================================
-// Stars Background Animation
-// ============================================
-function createStars() {
-    const starsContainer = document.getElementById('stars');
-    const starCount = 150;
-
-    for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.animationDelay = Math.random() * 3 + 's';
-        star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-
-        // Random size for stars
-        const size = Math.random() * 2 + 1;
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-
-        starsContainer.appendChild(star);
-    }
-}
 
 // ============================================
 // Navigation
@@ -372,22 +348,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// Parallax Effect for Floating Cards
-// ============================================
-document.addEventListener('mousemove', (e) => {
-    const cards = document.querySelectorAll('.float-card');
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-
-    cards.forEach((card, index) => {
-        const speed = (index + 1) * 15;
-        const xMove = (x - 0.5) * speed;
-        const yMove = (y - 0.5) * speed;
-        card.style.transform = `translate(${xMove}px, ${yMove}px)`;
-    });
-});
-
-// ============================================
 // Scroll Animation (Intersection Observer)
 // ============================================
 const observerOptions = {
@@ -404,10 +364,10 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Apply animation to sections and cards
-document.querySelectorAll('section, .skill-card, .project-card, .contact-item').forEach(el => {
+document.querySelectorAll('section:not(.hero), .skill-card, .project-card').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease-out';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1)';
     observer.observe(el);
 });
 
@@ -480,8 +440,8 @@ async function fetchGitHubProjects() {
         // Re-observe new project cards
         document.querySelectorAll('#github-projects .project-card').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease-out';
+            el.style.transform = 'translateY(16px)';
+            el.style.transition = 'opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1)';
             observer.observe(el);
         });
 
@@ -502,10 +462,7 @@ function filterProjects(filter) {
     // Update active tab
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.toLowerCase() === filter ||
-            (filter === 'all' && btn.textContent === 'All') ||
-            (filter === 'github' && btn.textContent === 'GitHub') ||
-            (filter === 'featured' && btn.textContent === 'Featured')) {
+        if (btn.dataset.filter === filter) {
             btn.classList.add('active');
         }
     });
@@ -582,13 +539,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize language switcher
     initLanguageSwitcher();
 
-    // Initialize theme switcher (default: dark mode)
+    // Initialize theme switcher (default: light mode)
     initThemeSwitcher();
 
     // Initialize back to top button
     initBackToTop();
 
-    createStars();
     fetchGitHubProjects();
     setTimeout(typeEffect, 1000);
 
